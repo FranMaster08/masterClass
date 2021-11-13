@@ -1,8 +1,11 @@
+const db = require("../database/models");
+
 const userModel = {
   getAllUsers: async () => {
-    return [];
+    return await db.User.findAll();
   },
   createUser: async (user) => {
+    const response = await db.User.create(user)
     return user;
   },
   updateUser: async (id, user) => {
